@@ -12,19 +12,22 @@ We need to use the information provided in our **election_results.csv** file to 
 - The percentage of votes from each county out of the total count
 - The county with the highest turnout
 
-
+#
 ### Election-Audit Results:
-
-### - How many votes were cast in this congressional election?
+- How many votes were cast in this congressional election?
 <img src="/Resources/total_votes.png" alt="total_votes" width="250">
 
 #### Here is a breakdown of what we did to achieve this:
 
-1. let start of by importing important dependencies, which wiill make it easier for us to analyze our data
+1. let start of by importing important modules, which wiill make it easier for us to analyze our data
    ```
    import csv
    import os
    ```
+   
+   Here are two links that will help you understand the importance of `csv` and the `os` module. <br>
+   csv - https://docs.python.org/3/library/csv.html<br>
+   os  - https://docs.python.org/3/library/os.html
 
 2. lets create a variable and load our data file into it <br>
    ```
@@ -71,12 +74,34 @@ We need to use the information provided in our **election_results.csv** file to 
             total_votes += 1
 
    ```
-   
+#   
+- Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
 
-  
-  
-  
-### - Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
+<img src="/Resources/county_votes.png" alt="county_votes" width="250"><br>
+#### Here is a breakdown of what we did to achieve this:<br>
+
+1. First thing we have to do, is create two variables; one will be an array, which will hold all the unique countries in the data file, and one will be a dictionary which will hold the country name and the total vote count of that country.
+   
+   ```
+   candidate_options = [] # will hold the unique countries
+   candidate_votes = {} # dictionary of the country name and vote count
+   ```
+
+
+2. To load the country column we need to know which index it lies in. To do this, we can use the next function to print the first line of the file
+   ```
+   headers = next(file_reader)
+   print(headers)
+   ```
+   Output:
+   
+   <img src="/Resources/headers.png" alt="headers" width="450"><br>
+   
+4. d
+5. d
+6. d
+
+#
 ### - Which county had the largest number of votes?
 ### - Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
 ### - Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
