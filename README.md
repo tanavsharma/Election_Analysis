@@ -88,7 +88,7 @@ We need to use the information provided in our **election_results.csv** file to 
    ```
 
 
-2. To load the country column we need to know which index it lies in. To do this, we can use the next function to print the first line of the file
+2. To load the country column we need to know which index it lies in. To do this, we can use the next function to print the first line of the file, which will be   the column names. 
    ```
    headers = next(file_reader)
    print(headers)
@@ -97,9 +97,36 @@ We need to use the information provided in our **election_results.csv** file to 
    
    <img src="/Resources/headers.png" alt="headers" width="450"><br>
    
-4. d
-5. d
-6. d
+   An array stores values in indexes, and an index always starts at 0. In this case, `Ballot ID = Index 0`, `County = Index 1`, `Candidate = Index 2`<br>
+   
+3. Once we know the index of the column we need to use; in this case it would `County` which is `Index 1`. We can store all the rows in that column to a variable. 
+   ```
+   country_name = row[1]
+   ```
+
+4. Next we need to run an if condition, which checks to see if there are any countys in the csv file, that isnt in our `country_options` array. If the condition is true, we want to add the country names in the data file to the `country_options` array. Next we need to initialize the starting count to zero for each county. Once the name is added, we will increse the counter for that county by 1. This process will continue untill it reaches the end of the csv file. 
+   ```
+   if country_name not in country_options: # if the name of the county in the csv file isn't in the county_options array, then go to next line.
+
+            country_options.append(country_name) # if condition true, then take that county name and added it to country_name array.
+            country_votes[country_name] = 0 # save country_name along with its votes to country dictionary
+        
+        country_votes[country_name] += 1 # increment the counter, whenever the name occurs. 
+   ```
+   
+5. Next we can get the percentage of the county votes, by running a for loop, that will cycle through country in our array and convert the number of votes to percentage from total count. 
+   ```
+   for country_name in country_options: # for each country in array, do the following:
+
+        # Retrieve county count and percentage.
+        county = country_votes[country_name] # We will save the country name and vote count, into variable county
+        county_percentage = float(county) / float(total_votes) * 100 # converting the vote count to percentage 
+        county_results = (
+            f"{country_name}: {county_percentage:.1f}% ({county:,})\n")  
+        
+        print(county_results) ## printing the result
+   ```
+   
 
 #
 ### - Which county had the largest number of votes?
