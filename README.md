@@ -83,8 +83,8 @@ We need to use the information provided in our **election_results.csv** file to 
 1. First thing we have to do, is create two variables; one will be an array, which will hold all the unique countries in the data file, and one will be a dictionary which will hold the country name and the total vote count of that country.
    
    ```
-   candidate_options = [] # will hold the unique countries
-   candidate_votes = {} # dictionary of the country name and vote count
+   country_options = [] # will hold the unique countries
+   country_votes = {} # dictionary of the country name and vote count
    ```
 
 
@@ -136,13 +136,41 @@ We need to use the information provided in our **election_results.csv** file to 
   #### Here is a breakdown of what we did to achieve this:<br>
   
   1. First thing we have to do, is create two variables; one will be an array, which will hold all the unique names of the candidates from the data file, and one will be a dictionary which will hold the candidate name and the total vote count for that candidate.
-   
+        
    ```
    candidate_options = [] # will hold the unique countries
    candidate_votes = {} # dictionary of the country name and vote count
    ```
-  
-  
-  
-  
-### - Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+  2. Since we already know the column names and their indexes from our previous steps, we can access the all the rows and save them into a variable. 
+     ```
+     candidate_name = row[2]
+     ```
+  4. Next we need to run an if condition, which checks to see if there are any candidates in the csv file, that isnt in our `candidate_options` array. If the condition is true, we want to add the candidate name from the data file to the `candidate_options` array. Next we need to initialize the starting count to zero for each candidate. Once the name is added, we will increse the counter for that candidate by 1. This process will continue untill it reaches the end of the csv file.
+     ```
+     if candidate_name not in candidate_options:
+
+            # Add the candidate name to the candidate list.
+            candidate_options.append(candidate_name)
+
+            # And begin tracking that candidate's voter count.
+            candidate_votes[candidate_name] = 0
+
+        # Add a vote to that candidate's count.
+        candidate_votes[candidate_name] += 1
+     ```
+  6. Next we can get the percentage of the candidate votes, by running a for loop, that will cycle through the candidates in our array and convert the number of votes to percentage by dividing it from the total count. 
+     ```
+         for candidate_name in candidate_votes:
+
+        # Retrieve vote count and percentage.
+        votes = candidate_votes[candidate_name]
+        vote_percentage = float(votes) / float(total_votes) * 100
+        candidate_results = (
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+
+        # Print each candidate's voter count and percentage to the terminal.
+        print(candidate_results)
+     ```
+#
+- Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+From our analysis above, we can see that election was won by **Diana DeGette** with **272,892**. That is **73.8%** from the total votes casted.
