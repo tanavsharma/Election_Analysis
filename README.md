@@ -176,4 +176,12 @@ We need to use the information provided in our **election_results.csv** file to 
 From our analysis above, we can see that election was won by **Diana DeGette** with **272,892**. That is **73.8%** from the total votes casted.
 
 ### Election-Audit Summary:
+The script can be used for other elections as well. With simple to none modifications, this script can support different types of election results data files. 
+However, there are some things that need to taken into account before running the script:
+
+1. We need to make sure we are addressing the right columns. For example, one csv file can have column name "Name Of Candidate" or "Candidate". These changes need to be implemented in the script, so the script knows which column to call for. 
+
+2. Another thing we need to keep an eye on are the index values of our columns. These can change. For example, county can be index 1 in one csv file, but in a different csv file, county can be index 5. Adjusting these values are also just as important. 
+
+
 
