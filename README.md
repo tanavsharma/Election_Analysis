@@ -97,7 +97,7 @@ We need to use the information provided in our **election_results.csv** file to 
    
    <img src="/Resources/headers.png" alt="headers" width="450"><br>
    
-   An array stores values in indexes, and an index always starts at 0. In this case, `Ballot ID = Index 0`, `County = Index 1`, `Candidate = Index 2`<br>
+   An array stores values in indexes, and an index always starts at 0. In this case:<br> `Ballot ID = Index 0`<br> `County = Index 1`<br> `Candidate = Index 2`<br>
    
 3. Once we know the index of the column we need to use; in this case it would `County` which is `Index 1`. We can store all the rows in that column to a variable. 
    ```
@@ -114,11 +114,10 @@ We need to use the information provided in our **election_results.csv** file to 
         country_votes[country_name] += 1 # increment the counter, whenever the name occurs. 
    ```
    
-5. Next we can get the percentage of the county votes, by running a for loop, that will cycle through country in our array and convert the number of votes to percentage from total count. 
+5. Next we can get the percentage of the county votes, by running a for loop, that will cycle through the countries in our array and convert the number of votes to percentage by dividing it from the total count. 
    ```
    for country_name in country_options: # for each country in array, do the following:
-
-        # Retrieve county count and percentage.
+   
         county = country_votes[country_name] # We will save the country name and vote count, into variable county
         county_percentage = float(county) / float(total_votes) * 100 # converting the vote count to percentage 
         county_results = (
@@ -126,9 +125,24 @@ We need to use the information provided in our **election_results.csv** file to 
         
         print(county_results) ## printing the result
    ```
-   
-
 #
-### - Which county had the largest number of votes?
-### - Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
+- Which county had the largest number of votes?
+  The county with the largest number of votes is Denver. As shown below:
+  <img src="/Resources/county_votes.png" alt="county_votes" width="250"><br>
+  We can see that Denver had the largest percentage at 82.8% and 305,055 votes. 
+#
+- Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
+  <img src="/Resources/candidate_votes.png" alt="candidate_votes.png" width="450"><br>
+  #### Here is a breakdown of what we did to achieve this:<br>
+  
+  1. First thing we have to do, is create two variables; one will be an array, which will hold all the unique names of the candidates from the data file, and one will be a dictionary which will hold the candidate name and the total vote count for that candidate.
+   
+   ```
+   candidate_options = [] # will hold the unique countries
+   candidate_votes = {} # dictionary of the country name and vote count
+   ```
+  
+  
+  
+  
 ### - Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
