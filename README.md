@@ -174,7 +174,7 @@ We need to use the information provided in our **election_results.csv** file to 
 #
 - Which candidate won the election, what was their vote count, and what was their percentage of the total votes?<br>
 From our analysis above, we can see that election was won by **Diana DeGette** with **272,892**. That is **73.8%** from the total votes casted.
-
+#
 ### Election-Audit Summary:
 The script can be used for other elections as well. With simple to none modifications, this script can support different types of election results data files. 
 However, there are some things that need to taken into account before running the script:
