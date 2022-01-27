@@ -135,13 +135,13 @@ We need to use the information provided in our **election_results.csv** file to 
   <img src="/Resources/candidate_votes.png" alt="candidate_votes.png" width="450"><br>
   #### Here is a breakdown of what we did to achieve this:<br>
   
-  1. First thing we have to do, is create two variables; one will be an array, which will hold all the unique names of the candidates from the data file, and one will be a dictionary which will hold the candidate name and the total vote count for that candidate.
+1. First thing we have to do, is create two variables; one will be an array, which will hold all the unique names of the candidates from the data file, and one will be a dictionary which will hold the candidate name and the total vote count for that candidate.
         
    ```
    candidate_options = [] # will hold the unique countries
    candidate_votes = {} # dictionary of the country name and vote count
    ```
-  2. Since we already know the column names and their indexes from our previous steps, we can access the all the rows and save them into a variable. 
+2. Since we already know the column names and their indexes from our previous steps, we can access the all the rows and save them into a variable. 
      ```
      candidate_name = row[2]
      ```
@@ -158,7 +158,7 @@ We need to use the information provided in our **election_results.csv** file to 
         # Add a vote to that candidate's count.
         candidate_votes[candidate_name] += 1
      ```
-  6. Next we can get the percentage of the candidate votes, by running a for loop, that will cycle through the candidates in our array and convert the number of votes to percentage by dividing it from the total count. 
+6. Next we can get the percentage of the candidate votes, by running a for loop, that will cycle through the candidates in our array and convert the number of votes to percentage by dividing it from the total count. 
      ```
          for candidate_name in candidate_votes:
 
@@ -172,5 +172,5 @@ We need to use the information provided in our **election_results.csv** file to 
         print(candidate_results)
      ```
 #
-- Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
+- Which candidate won the election, what was their vote count, and what was their percentage of the total votes?<br>
 From our analysis above, we can see that election was won by **Diana DeGette** with **272,892**. That is **73.8%** from the total votes casted.
